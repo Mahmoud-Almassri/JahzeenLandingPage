@@ -1,0 +1,23 @@
+export class AppSettingsModel{
+    public aboutUsTitle :string
+    public aboutUsDescription :string
+    public aboutUsVision :string
+    public aboutUsMision :string
+    public contactUsEmail :string
+    public contactUsMobileNo :string
+    public contactUsLatitude :string
+    public contactUsLongitude :string
+    public contactUsTitle :string
+    public contactUsTitleAR :string
+    public aboutUsTitleAR :string
+    public aboutUsDescriptionAR :string
+    public aboutUsVisionAR :string
+    public aboutUsMisionAR :string
+    public address :string
+    public facebook :string
+    public instagram :string
+    public twitter :string
+    public linkedin :string
+    public appleStore :string
+    public googleStore :string
+ }

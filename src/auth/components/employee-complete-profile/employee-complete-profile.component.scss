@@ -1,0 +1,115 @@
+mat-error {
+    transition: 0.6s;
+    color: #fd5151;
+}
+agm-map {
+    height: 300px;
+    width: 100%;
+}
+.skills-box {
+    margin-top: 50px;
+    justify-content: center;
+}
+.skill-box {
+    font-size: 17px;
+    color: white;
+    background: #4782be !important;
+    text-align: center;
+    height: 45px;
+    padding-top: 12px;
+    border-radius: 7px;
+    width: 430px !important;
+}
+.experience-box {
+    font-size: 17px;
+    color: #4782BE;
+    border: 3px #4782BE solid;
+    background: white;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 7px;
+    width: 100%;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 10%);
+}
+.title-level-box {
+    margin-inline-start: 28px;
+    width: 430px;
+    text-align: center;
+    padding-top: 12px;
+    height: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 3px #4782be solid;
+}
+.skill-box-animate {
+    transition: 0.6s;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.add-button {
+    height: 50px;
+}
+.add-btn-row {
+    justify-content: flex-end;
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+.text-hr {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #d9eaed;
+    line-height: 0.1em;
+    color: #818992;
+    margin: 10px 0 20px;
+}
+
+.text-hr span {
+    background: #fff;
+    padding: 0 10px;
+}
+.close-btn-circle {
+    position: absolute;
+    top: -73px;
+    right: -36px;
+    width: 50px;
+    height: 50px;
+    border-radius: 46px;
+    padding: 11px;
+    cursor: pointer;
+    background: white;
+    z-index: 99999999999999999;
+    color: #4782be !important;
+    border: 3px #4782be solid;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 10%);
+    transition: 0.6s !important;
+}
+.close-btn-circle:hover {
+    background: #4782be !important ;
+    color: white !important;
+}
+.skill-close-btn-circle {
+    position: absolute;
+    top: -94px;
+    right: -36px;
+    width: 50px;
+    height: 50px;
+    border-radius: 46px;
+    padding: 11px;
+    cursor: pointer;
+    background: white;
+    z-index: 99999999999999999;
+    color: #4782be !important;
+    border: 3px #4782be solid;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 10%);
+    transition: 0.6s !important;
+}
+.skill-close-btn-circle:hover {
+    background: #4782be !important ;
+    color: white !important;
+}
+.experience-box:hover{
+    .close-btn-circle {
+        background: #4782be !important ;
+        color: white !important;
+    }
+}

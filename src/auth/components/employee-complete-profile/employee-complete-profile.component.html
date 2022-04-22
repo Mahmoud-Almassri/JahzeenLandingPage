@@ -1,0 +1,306 @@
+<div>
+    <div class="inner-wrapper d-flex flex-column p-4">
+        <a class="align-self-center" href="/">
+            <img src="assets/img/logo.png" style="width: 500px;" alt="">
+        </a>
+        <!-- ***** Login Area Start ***** -->
+
+        <div class="login-area py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-10 col-md-12 col-lg-12 inner-content text-center">
+                        <h2 class="text-primary fw-4">Employee complete profile </h2>
+                        <p class="pt-3 pb-5">Please fill all steps to complete your account</p>
+
+                        <ng-wizard [config]="wizardConfig" (stepChanged)="stepChanged($event)">
+                            <ng-wizard-step [title]="'Information'" [description]="'Employee Information'"
+                                [canEnter]="isValidTypeBoolean" [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+                                <form [formGroup]="profileForm" class="fade-in-1s">
+                                    <div class="inner-form text-left col-12 col-sm-10 col-md-8 col-lg-10" style="margin-left: auto;
+                                margin-right: auto;">
+                                        <div class="row w-100">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input formControlName="firstName" type="text" class="form-control"
+                                                        placeholder="Enter your first name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input formControlName="lastName" type="text" class="form-control"
+                                                        placeholder="Enter your last name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Year Of Birth</label>
+                                                    <input formControlName="yearOfBirth" type="number"
+                                                        class="form-control" placeholder="Enter your year of birth">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Last Education Level</label>
+                                                    <input formControlName="lastEducationLevel" type="text"
+                                                        class="form-control"
+                                                        placeholder="Enter your last education level">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <select class="form-control" formControlName="gender">
+                                                        <option value="" disabled selected>Choose your gender</option>
+                                                        <option [value]="1">Male</option>
+                                                        <option [value]="2">Female</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </ng-wizard-step>
+
+                            <ng-wizard-step [title]="'Skills'" [description]="'Employee Skills'"
+                                [state]="stepStates.normal">
+                                <div class="inner-form fade-in-1s text-left col-12 col-sm-10 col-md-8 col-lg-10" style="margin-left: auto;
+                                margin-right: auto;">
+                                    <div class="row w-100 ">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Skill</label>
+                                                <select class="form-control" [formControl]="skillControl">
+                                                    <option value="" disabled selected>Choose your gender</option>
+                                                    <option *ngFor="let skill of skills" [value]="skill.id">
+                                                        {{skill?.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Title Level</label>
+                                                <select class="form-control" [formControl]="titleLevelControl">
+                                                    <option value="" disabled selected>Choose your level</option>
+                                                    <option *ngFor="let level of titleLevels" [value]="level.id">
+                                                        {{level?.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row w-100 add-btn-row">
+                                        <button class="btn btn-primary btn-sm add-button"
+                                            (click)="addToSkills()">Add</button>
+                                    </div>
+                                    <h4 *ngIf="userSkills?.length" class="text-hr"><span>Employee Skills</span></h4>
+                                    <div class="row w-100 skills-box" *ngIf="userSkills?.length">
+                                        <div class="row w-100 experience-box-animate mt-3"
+                                            *ngFor="let userSkill of userSkills">
+                                            <div class="experience-box fade-in">
+                                                <div class="row w-100">
+                                                    <div class="col">
+                                                         <b style="color: #f8673e;">skill Name</b>
+                                                         <br>
+                                                         {{userSkill.skillName}}
+                                                    </div>
+                                                    <div class="col">
+                                                        <b style="color: #f8673e;">skill Level</b>
+                                                        <br>
+                                                        {{skillTypes[userSkill.titleLevel-1].name}}
+                                                    </div>
+                                                </div>
+                                                <div class="row w-100 mt-3">
+                                                    <div class="col">
+                                                        <span class="skill-close-btn-circle" (click)="removeUserSkill(userSkill)">
+                                                            <i style="cursor: pointer;"
+                                                                class="fas fa-times"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-wizard-step>
+                            <ng-wizard-step [title]="'Experience'" [description]="'Employee Experience'">
+                                <form [formGroup]="experienceForm">
+                                    <div class="inner-form text-left col-12 col-sm-10 col-md-8 col-lg-10" style="margin-left: auto;
+                                margin-right: auto;">
+                                        <div class="row w-100">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group form-check">
+                                                    <input formControlName="noPrevExperience" type="checkbox"
+                                                        class="form-check-input" id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">No previous
+                                                        experience</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row w-100 fade-in-1s" *ngIf="getExperienceFormControlByName('noPrevExperience').value==false">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Experience Type</label>
+                                                    <select class="form-control" formControlName="experienceType">
+                                                        <option value="" disabled selected>Choose your experience type
+                                                        </option>
+                                                        <option *ngFor="let type of experienceTypes" [value]="type.id">
+                                                            {{type?.name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Job Title</label>
+                                                    <input formControlName="jobTitle" type="text" class="form-control"
+                                                        placeholder="Enter your job title">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Job Employer</label>
+                                                    <input formControlName="employer" type="text" class="form-control"
+                                                        placeholder="Enter your job employer name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>From date</label>
+                                                    <ngx-datepicker class="form-control" [options]="options"
+                                                        formControlName="from"></ngx-datepicker>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>To date</label>
+                                                    <ngx-datepicker class="form-control" [options]="options"
+                                                        formControlName="to"></ngx-datepicker>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row w-100 add-btn-row" *ngIf="getExperienceFormControlByName('noPrevExperience').value==false">
+                                            <button class="btn btn-primary btn-sm add-button"
+                                                (click)="addToExperience()">Add</button>
+                                        </div>
+                                        <h4 *ngIf="userExperience?.length" class="text-hr"><span>Employee
+                                                Experiences</span></h4>
+                                        <div class="row w-100 skills-box" *ngIf="userExperience?.length">
+                                            <div class="row w-100 skill-box-animate mt-2"
+                                                *ngFor="let experience of userExperience">
+                                                <div class="experience-box fade-in">
+                                                    <div class="row w-100">
+                                                        <div class="col">
+                                                            {{experience.jobTitle}} <b style="color: #f8673e;">At</b> {{experience.employer}}
+                                                        </div>
+                                                        <div class="col">
+                                                           From {{experience.from|date:('dd/MM/yyyy')}} to
+                                                            {{experience.to|date:('dd/MM/yyyy')}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row w-100 mt-3">
+                                                        <div class="col">
+                                                            {{experienceTypes[experience.experienceType].name}}
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="close-btn-circle" (click)="removeUserExperience(experience)">
+                                                                <i style="cursor: pointer;"
+                                                                    class="fas fa-times"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </ng-wizard-step>
+                            <ng-wizard-step [title]="'Location'" [description]="'Employee Location'"
+                                [state]="stepStates.normal">
+                                <div class="row fade-in-1s">
+                                    <div class="col">
+                                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
+                                            <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"
+                                                (dragEnd)="mapClicked($event)"></agm-marker>
+                                        </agm-map>
+                                    </div>
+                                </div>
+                            </ng-wizard-step>
+                            <ng-wizard-step [title]="'Attachments'" [description]="'Attachments'"
+                                [state]="stepStates.normal">
+                                <div class="row w-100 fade-in-1s">
+                                        <div class="col-6 p-2">Personal picture : </div>
+                                        <div class="col-6 p-2">
+                                            <input #fileInput1 type="file" [hidden]="true" (change)="handlePersonalPictureFile( $event.target.files[0])" accept=".png,.jpg,.jpeg" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput1.click()" matTooltip="Logo"
+                                                matTooltipPosition="above" >
+                                                Upload attachment
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 10%;" (click)="downloadPersonalpicture()" matTooltip="download"
+                                            matTooltipPosition="above" >                      
+                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                        </button>
+                                        </div>
+                                        <div class="col-6 p-2">Last education level certificate : </div>
+                                        <div class="col-6 p-2">
+                                            <input #fileInput2 type="file" [hidden]="true" (change)="handleLastEducationCertificateFile( $event.target.files[0])" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput2.click()" matTooltip="Commercial Register"
+                                                matTooltipPosition="above" >
+                                                Upload attachment
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 10%;" (click)="downloadLastEducationCertificate()" matTooltip="download"
+                                            matTooltipPosition="above" >                      
+                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                        </button>
+                                        </div>
+                                        <div class="col-6 p-2">Non criminal record : </div>
+                                        <div class="col-6 p-2">
+                                            <input #fileInput3 type="file" [hidden]="true" (change)="handleNoCriminalRecordFile( $event.target.files[0])" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput3.click()" matTooltip="Other Attachment"
+                                                matTooltipPosition="above" >
+                                                Upload attachment
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 10%;" (click)="downloadNoCriminalRecord()" matTooltip="download"
+                                            matTooltipPosition="above" >                      
+                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                        </button>
+                                        </div>
+                                        <div class="col-6 p-2">Personal ID : </div>
+                                        <div class="col-6 p-2">
+                                            <input #fileInput4 type="file" [hidden]="true" (change)="handlePersonalIdFile( $event.target.files[0])" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput4.click()" matTooltip="Other Attachment"
+                                                matTooltipPosition="above" >
+                                                Upload attachment
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 10%;" (click)="downloadPersonalId()" matTooltip="download"
+                                            matTooltipPosition="above" >                      
+                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                            </ng-wizard-step>
+
+
+                        </ng-wizard>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Login Area End ***** -->
+        <div class="footer-bottom align-self-center">
+            <!-- Copyright Area -->
+            <div class="copyright-area border-0 pt-4 pt-md-0">
+                <p>Made with <i class="icofont-heart-alt"></i> By <a href="#">Cancrie E-solutions</a></p>
+            </div>
+        </div>
+    </div>
+</div>

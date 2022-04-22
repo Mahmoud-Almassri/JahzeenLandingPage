@@ -1,0 +1,60 @@
+<div>
+    <div class="inner-wrapper d-flex flex-column p-4">
+        <a class="align-self-center" href="/">
+            <img src="assets/img/logo.png" style="width: 500px;" alt="">
+        </a>
+        <!-- ***** Login Area Start ***** -->
+        
+        <div class="login-area py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-10 col-md-8 col-lg-6 inner-content text-center">
+                        <h2 class="text-primary fw-4">Employee Sign Up</h2>
+                        <p class="pt-3 pb-5">Already have an account? <a class="color-primary" [routerLink]="['/employee-login']">Login now</a></p>
+                        <form [formGroup]="signupForm" class="inner-form text-left">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Enter Phone Number</label>
+                                <div class="input-group">
+                                <div class="input-group-text">{{keyNumber}}</div>
+                                <input formControlName="phoneNumber" type="text" minlength="9" maxlength="9" class="form-control" placeholder="Enter phoneNumber">
+                                </div>
+                                <mat-error *ngIf="signupForm.get('phoneNumber').invalid">
+                                    <strong>mobile number is required and must be 9 digits and starts with (79/78/77)</strong>
+                                </mat-error>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input formControlName="password" type="password" class="form-control" placeholder="Enter your password">
+                                <mat-error *ngIf="signupForm.controls['password'].dirty && signupForm.controls['password'].errors?.pattern">
+                                    <strong>Password should be at least 6 charachters</strong>
+                                </mat-error>
+                                <mat-error *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.required">
+                                    <strong>Password is required </strong>
+                                </mat-error>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Confirm Password</label>
+                                <input [formControl]="confirmPassword" type="password" class="form-control" placeholder="Enter your confirm password">
+                                <mat-error *ngIf="confirmPassword.dirty && confirmPassword.errors?.noMatch">
+                                    <strong>Password</strong> and <strong>Confirm Password</strong> must be same
+                                </mat-error>
+                                <mat-error *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+                                    <strong>Confirm Password is required </strong>
+                                </mat-error>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="submitForm()">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Login Area End ***** -->
+        <div class="footer-bottom align-self-center">
+            <!-- Copyright Area -->
+            <div class="copyright-area border-0 pt-4 pt-md-0">
+                <p>Made with <i class="icofont-heart-alt"></i> By <a href="#">Cancrie E-solutions</a></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="135" viewBox="0 0 280 135">
+  <defs>
+    <clipPath id="clip-Custom_Size_1">
+      <rect width="280" height="135"/>
+    </clipPath>
+  </defs>
+  <g id="Custom_Size_1" data-name="Custom Size – 1" clip-path="url(#clip-Custom_Size_1)">
+    <rect width="280" height="135" fill="#fff"/>
+    <g id="Group_12215" data-name="Group 12215" transform="translate(0 -267)">
+      <rect id="Rectangle_639" data-name="Rectangle 639" width="280" height="146" transform="translate(0 259)" fill="#f5f5f5"/>
+      <g id="Rectangle_34" data-name="Rectangle 34" transform="translate(13.29 308.064)" fill="#fff" stroke="#cacaca" stroke-miterlimit="10" stroke-width="0.5">
+        <rect width="253.421" height="32.988" rx="5" stroke="none"/>
+        <rect x="0.25" y="0.25" width="252.921" height="32.488" rx="4.75" fill="none"/>
+      </g>
+      <text id="Find_jobs" data-name="Find jobs" transform="translate(70 295)" fill="#4782be" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-57.447" y="0">Find jobs</tspan></text>
+      <g id="Group_11827" data-name="Group 11827" transform="translate(13.44 353.827)">
+        <rect id="Rectangle_489" data-name="Rectangle 489" width="32" height="101" rx="6" transform="translate(100.56 0.173) rotate(90)" fill="#f7663d"/>
+        <text id="Find_Jobs-2" data-name="Find Jobs" transform="translate(22.56 20.173)" fill="#f8f9fd" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1" font-size="12" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">Find Jobs</tspan></text>
+      </g>
+      <text id="Search_by_job_Title_skills_Company_Name" data-name="Search by job Title, skills, Company Name" transform="translate(200.467 326.212)" fill="#989494" font-size="8" font-family="Poppins-Regular, Poppins"><tspan x="-165.152" y="0">Search by job Title, skills, Company Name</tspan></text>
+      <path id="download_1_" data-name="download (1)" d="M21.779,20.783,19.7,18.72a5.214,5.214,0,1,0-4.1,1.991,5.555,5.555,0,0,0,1.734-.3,4.744,4.744,0,0,0,1.466-.812l2.062,2.091a.623.623,0,0,0,.455.185.685.685,0,0,0,.455-.185A.635.635,0,0,0,21.779,20.783Zm-2.247-5.277a3.934,3.934,0,1,1-1.152-2.774A3.895,3.895,0,0,1,19.532,15.506Z" transform="translate(9.016 308.469)" fill="#4782be"/>
+    </g>
+  </g>
+</svg>

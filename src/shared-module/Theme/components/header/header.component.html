@@ -1,0 +1,50 @@
+<header id="home" class="navbar navbar-sticky navbar-expand-lg navbar-dark">
+    <div class="container position-relative">
+        <a class="navbar-brand" href="index.html">
+            <img class="navbar-brand-regular" style="width: 215px;" src="assets/img/logo-white.svg" alt="brand-logo">
+            <img class="navbar-brand-sticky" style="width: 215px;" src="assets/img/logo.svg" alt="sticky brand-logo">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-inner">
+            <!--  Mobile Menu Toggler -->
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav>
+                <ul class="navbar-nav" id="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link scroll" href="/#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll" href="/#about">About</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link scroll" href="/#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll" href="/#screenshots">Screenshots</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll" href="/#contact">Contact</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isAuthorized">
+                        <a class="nav-link scroll" [routerLink]="['/sign-up']">Registration</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isAuthorized">
+                        <a class="nav-link scroll" [routerLink]="['/choose-login-type']">Login</a>
+                    </li> 
+                    <li class="nav-item" *ngIf="isAuthorized">
+                        <a class="nav-link scroll" *ngIf="isEmployee" [routerLink]="['/employee-complete-profile']">Profile</a>
+                        <a class="nav-link scroll" *ngIf="!isEmployee" [routerLink]="['/employer-complete-profile']">Profile</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isAuthorized">
+                        <a class="nav-link scroll" style="cursor: pointer;" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

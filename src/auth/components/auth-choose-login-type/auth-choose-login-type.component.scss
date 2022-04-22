@@ -1,0 +1,101 @@
+
+$orange-color:linear-gradient(90deg, rgba(248,103,62,1) 0%, rgba(255,131,96,1) 35%, rgba(255,175,153,1) 100%);
+$blue-color:linear-gradient(90deg, rgba(71,130,190,1) 0%, rgba(103,146,190,1) 35%, rgba(167,183,200,1) 100%);
+.contact-back-ground{
+    background-image: url("../../../assets/img/employer-employee-relationship.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+*{
+  text-align: center;
+}
+
+.opa{
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+}
+
+.btn-1{
+  margin: 2px;
+  width: 250px;
+  height: 100px;
+  border: none;
+  border-radius: 4px;
+  transition: ease-out 0.3s;
+  font-size: 2rem;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  color: white;
+  border: 3px solid #F8673E;
+  background:none;
+}
+.btn-1:hover{
+  color: #fff;
+  cursor: pointer;
+}
+.btn-1:before{
+transition: 0.5s all ease;
+position: absolute;
+top: 0;
+left: 50%;
+right: 50%;
+bottom: 0;
+opacity: 0;
+content: "";
+background: $orange-color;
+}
+.btn-1:hover:before{
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}
+
+
+
+.btn-2{
+  margin: 2px;
+  width: 250px;
+  height: 100px;
+  border: none;
+  border-radius: 4px;
+  transition: ease-out 0.3s;
+  font-size: 2rem;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  color: white;
+  border: 3px solid #4782BE;
+  background:none;
+}
+.btn-2:hover{
+  color: #fff;
+  cursor: pointer;
+}
+.btn-2:before{
+transition: 0.5s all ease;
+position: absolute;
+top: 0;
+left: 50%;
+right: 50%;
+bottom: 0;
+opacity: 0;
+content: "";
+background: $blue-color;
+}
+.btn-2:hover:before{
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  z-index: -1;
+}

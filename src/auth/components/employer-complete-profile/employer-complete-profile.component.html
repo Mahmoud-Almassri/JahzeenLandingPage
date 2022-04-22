@@ -1,0 +1,285 @@
+<div>
+    <div class="inner-wrapper d-flex flex-column p-4">
+        <a class="align-self-center" href="/">
+            <img src="assets/img/logo.png" style="width: 500px;" alt="">
+        </a>
+        <!-- ***** Login Area Start ***** -->
+
+        <div class="login-area py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-10 col-md-12 col-lg-12 inner-content text-center">
+                        <h2 class="text-primary fw-4">Employer complete profile </h2>
+                        <p class="pt-3 pb-5">Please fill all steps to complete your account</p>
+                        <form [formGroup]="profileForm">
+
+                            <ng-wizard [config]="wizardConfig" (stepChanged)="stepChanged($event)">
+                                <ng-wizard-step [title]="'Information'" [description]="'Employer Information'"
+                                    [canEnter]="isValidTypeBoolean"
+                                    [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+                                    <div class="inner-form text-left col-12 col-sm-10 col-md-8 col-lg-10" style="margin-left: auto;
+                                margin-right: auto;">
+                                        <div class="row w-100">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Company Name</label>
+                                                    <input formControlName="companyName" type="text" class="form-control"
+                                                        placeholder="Enter your Company">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Contact Person Name</label>
+                                                    <input formControlName="contactPersonName" type="text" class="form-control"
+                                                        placeholder="Enter your Contact Person Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Contact Person Title</label>
+                                                    <input formControlName="contactPersonTitle" type="text"
+                                                        class="form-control" placeholder="Enter your contact person title">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Mobile Number</label>
+                                                    <input formControlName="mobileNumber" type="text"
+                                                        class="form-control"
+                                                        placeholder="Enter your Mobile Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Company Size</label>
+                                                    <input formControlName="companySize" type="text"
+                                                        class="form-control"
+                                                        placeholder="Enter your Compnay Size">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                <div class="form-group">
+                                                    <label>Company Industry</label>
+                                                    <textarea formControlName="industryOption" type="text"
+                                                        class="form-control"
+                                                        placeholder="Enter your description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-wizard-step>
+
+                                <ng-wizard-step [title]="'Branch'" [description]="'Employer Branch'"
+                                    [state]="stepStates.normal">
+                                    <div class="inner-form text-left col-12 col-sm-10 col-md-8 col-lg-10" style="margin-left: auto;
+                                margin-right: auto;">
+                                                <div class="row w-100">
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Branch Name</label>
+                                                            <input [formControl]="branchName" type="text" class="form-control" placeholder="Enter your Branch Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>City</label>
+                                                            <input [formControl]="city" type="text" class="form-control" placeholder="Enter your City">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Street</label>
+                                                            <input [formControl]="street" type="text" class="form-control" placeholder="Enter your Street">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Area</label>
+                                                            <input [formControl]="area" type="text" class="form-control" placeholder="Enter your Area">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                        <button class="btn btn-primary btn-sm" (click)="addToBranches()">Add</button>
+                                                    </div>
+                                                </div>
+                                        <!-- <div class="row w-100 skills-box" *ngIf="CompanyBranches.length">
+                                            <div class="row w-100 skill-box-animate" *ngFor="let branch of CompanyBranches">
+                                                <div class="skill-box">
+                                                    {{branch.branchName}}
+                                                    <label (click)="removeBranch(branch)"><i  style="margin-inline-start: 5px;cursor: pointer;" class="fas fa-times"></i></label>
+                                                </div>
+                                                <div class="title-level-box">{{branch.city}}</div>
+                                                <div class="title-level-box">{{branch.street}}</div>
+                                                <div class="title-level-box">{{branch.area}}</div>
+                                            </div>
+                                            <div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row w-100 skills-box" *ngIf="CompanyBranches">
+                                            <div class="row w-100 Address-box-animate"
+                                                *ngFor="let branch of CompanyBranches">
+                                                <div class="Address-box fade-in">
+                                                    <div class="row w-100">
+                                                        <div class="col">
+                                                             <b style="color: #f8673e;">Branch Name</b>
+                                                             <br>
+                                                             {{branch.branchName}}
+                                                        </div>
+                                                        <div class="col">
+                                                            <b style="color: #f8673e;">City</b>
+                                                            <br>
+                                                            {{branch.city}}
+                                                        </div>
+                                                        <div class="col">
+                                                            <b style="color: #f8673e;">Street</b>
+                                                            <br>
+                                                            {{branch.street}}
+                                                        </div>
+                                                        <div class="col">
+                                                            <b style="color: #f8673e;">Area</b>
+                                                            <br>
+                                                            {{branch.area}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row w-100 mt-3">
+                                                        <div class="col">
+                                                            <span class="close-btn-circle" (click)="removeBranch(branch)">
+                                                                <i style="cursor: pointer;"
+                                                                    class="fas fa-times"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-wizard-step>
+
+                                <ng-wizard-step [title]="'Attachments'" [description]="'Employer Attachments'"
+                                    [state]="stepStates.normal">
+                                    <div class="row w-100">
+                                        <div class="col-4 p-2">Upload Company logo : </div>
+                                        <div class="col-4 p-2">
+                                            <input #fileInput1 type="file" [hidden]="true" (change)="handleCompanyLogoFile( $event.target.files[0])" accept=".png,.jpg,.jpeg" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput1.click()" matTooltip="Logo"
+                                                matTooltipPosition="above" >
+                                                Upload Compnay Logo
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 15%;" (click)="downloadCompanyLogo()" matTooltip="download"
+                                                matTooltipPosition="above" >                      
+                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-4 p2">
+                                            <div class="attach-card front" *ngIf="LogoFile">
+                                                <div class="content container">
+                                                    <div class="row">
+                                                      <div class="col-md-6" >
+                                                       <h3 style="color: white; margin-block: 14px;">{{LogoFile.name}}</h3>
+                                                      </div>
+                                                      <div class="col-md-6" >
+                                                        <div class="col-md-6" >
+                                                            <button class="rounded-button" (click)="deleteFile(1)">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                          </div>
+                                                      </div>
+                                                      
+                                                    </div>
+                                                    <span class="click-for-more">
+                                                    </span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 p-2">Commercial Register Path : </div>
+                                        <div class="col-4 p-2">
+                                            <input #fileInput2 type="file" [hidden]="true" (change)="handleCommercialRegisterFile( $event.target.files[0])" accept=".png,.jpg,.jpeg" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput2.click()" matTooltip="Commercial Register"
+                                                matTooltipPosition="above" >
+                                                Upload Commercial Register
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 15%;" (click)="downloadCommercialRegister()" matTooltip="download"
+                                                matTooltipPosition="above" >                      
+                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-4 p2">
+                                            <div class="attach-card front" *ngIf="CommericalFile">
+                                                <div class="content container">
+                                                    <div class="row">
+                                                      <div class="col-md-6" >
+                                                       <h3 style="color: white; margin-block: 14px;">{{CommericalFile.name}}</h3>
+                                                      </div>
+                                                      <div class="col-md-6" >
+                                                        <div class="col-md-6" >
+                                                            <button class="rounded-button" (click)="deleteFile(2)">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                          </div>
+                                                      </div>
+                                                      
+                                                    </div>
+                                                    <span class="click-for-more">
+                                                    </span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 p-2">Other Attachment Path : </div>
+                                        <div class="col-4 p-2">
+                                            <input #fileInput3 type="file" [hidden]="true" (change)="handleOtherAttachmentFile( $event.target.files[0])" accept=".png,.jpg,.jpeg" />
+                                            <button class="Upload-button" style="margin-top:10px;" (click)="fileInput3.click()" matTooltip="Other Attachment"
+                                                matTooltipPosition="above" >
+                                                Upload Other Attachment
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="Upload-button ml-3" style="margin-top:10px; width: 15%;" (click)="downloadOtherAttachment()" matTooltip="download"
+                                                matTooltipPosition="above" >                      
+                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            </button>
+
+                                        </div>
+                                        <div class="col-4 p2">
+                                            <div class="attach-card front" *ngIf="OtherAttachmentFile">
+                                                <div class="content container">
+                                                    <div class="row">
+                                                      <div class="col-md-6" >
+                                                       <h3 style="color: white; margin-block: 14px;">{{OtherAttachmentFile.name}}</h3>
+                                                      </div>
+                                                      <div class="col-md-6" >
+                                                        <div class="col-md-6" >
+                                                            <button class="rounded-button" (click)="deleteFile(3)">
+                                                                <i class="fas fa-trash-alt"></i>
+                                                            </button>
+                                                          </div>
+                                                      </div>
+                                                      
+                                                    </div>
+                                                    <span class="click-for-more">
+                                                    </span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-wizard-step>
+
+                                
+                            </ng-wizard>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Login Area End ***** -->
+        <div class="footer-bottom align-self-center">
+            <!-- Copyright Area -->
+            <div class="copyright-area border-0 pt-4 pt-md-0">
+                <p>Made with <i class="icofont-heart-alt"></i> By <a href="#">Cancrie E-solutions</a></p>
+            </div>
+        </div>
+    </div>
+</div>

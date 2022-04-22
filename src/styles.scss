@@ -1,0 +1,140 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-wizard/themes/ng_wizard.min.css";
+@import "~ng-wizard/themes/ng_wizard_theme_dots.min.css";
+@import '~ngx-toastr/toastr';
+
+.my-super-class {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 44px;
+    border: none;
+}
+.my-super-class {
+    border: none !important;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(89, 89, 89, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(89, 89, 89, 1);
+    box-shadow: 0px 0px 5px 0px rgba(89, 89, 89, 1);
+}
+.ng-wizard-theme-dots > ul.step-anchor {
+    justify-content: center !important;
+}
+.ng-wizard-theme-dots .step-content {
+    transition: 1.9s !important;
+}
+.ng-wizard-theme-dots > ul.step-anchor > li.active > a {
+    color: #4782be !important;
+}
+.ng-wizard-theme-dots > ul.step-anchor > li.active > a:after {
+    background: #4782be !important;
+}
+.ng-wizard-theme-dots > ul.step-anchor > li > a:before {
+    color: #4782be !important;
+}
+.ng-wizard-theme-dots > ul.step-anchor > li.done > a {
+    color: #4782be !important;
+}
+.ng-wizard-theme-dots > ul.step-anchor > li.done > a:after {
+    background: #4782be !important;
+}
+.datepicker-blue {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    input {
+       
+            width: -webkit-fill-available !important;
+            height: -webkit-fill-available !important;
+            border: none !important;
+        &:focus {
+            border: none !important;
+         } 
+         &::before {
+            border: none !important;
+         }
+         &::after {
+            border: none !important;
+         }
+    }
+    
+}
+.calendar-container{
+    position: absolute;
+    width: 320px;
+    border-radius: 4px;
+    top: 59px;
+    left: 0;
+    z-index: 10;
+    background: white;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 20%);
+}
+
+
+.fade-in {
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+  }
+  .fade-in-1s {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+    transition: 0.9s;
+  }
+  
+  
+  @keyframes fadeIn{
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  .Upload-button{
+    border-radius: 28px;
+    width: 240px;
+    height: 53px;
+    text-align: center;
+    border:none !important;
+    color: white;
+    background: linear-gradient(90deg, rgba(248,103,62,1) 0%, rgba(255,131,96,1) 35%, rgba(255,175,153,1) 100%);
+}
